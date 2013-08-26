@@ -6,10 +6,12 @@ import org.junit.Test;
 public class IntegrationTestsStories{
 
     @Test
-    public void execute() {
+    public void execute() throws Throwable {
         // Filtering test
         StoryRunner test = new StoryRunner();
         test.setSteps(new FiltringSteps());
-        test.runStoriesAsStoryFinder("integration/integ_filtring.story");
+        test.useStoriesAsStoryFinder("integration/integ_filtring.story");
+        test.run();
+
     }
 }

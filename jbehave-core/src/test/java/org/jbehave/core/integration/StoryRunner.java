@@ -15,7 +15,6 @@ import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.ParameterConverters;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,20 +22,21 @@ import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
 import static org.jbehave.core.reporters.Format.CONSOLE;
 import static org.jbehave.core.reporters.Format.XML;
 
-public class StoryRunner {
-    private Embedder embedder;
+public class StoryRunner implements Embeddable{
+    private Embedder embedder = new Embedder();
+    private List<String> stories;
+    private Configuration configuration = configuration();
 
-   public StoryRunner() {
+    public StoryRunner() {
        // Configure embedder
-       embedder = new Embedder();
-
        embedder.embedderControls()
                .doGenerateViewAfterStories(true)
                .doIgnoreFailureInStories(true)
                .doIgnoreFailureInView(true)
                .useThreads(1)
                .useStoryTimeoutInSecs(60);
-   }
+        embedder.useConfiguration(configuration);
+    }
 
     public void setFilters(List<String> filters) {
         embedder.useMetaFilters(filters);
@@ -45,41 +45,51 @@ public class StoryRunner {
     public void setSteps(Object Steps) {
         embedder.useStepsFactory(
                 new InstanceStepsFactory(
-                        configuration(),
+                        configuration,
                         Steps)
         );
     }
 
-    public void runStoriesAsPath(String story) {
-        embedder.runStoriesAsPaths(Arrays.asList(story));
+    public void setConfiguration(Configuration configuration) {
+        this.configuration = configuration;
     }
 
-    public void runStoriesAsPaths(List<String> stories) {
-        embedder.runStoriesAsPaths(stories);
+    // --- Configure stories ---
+    public void useStoriesAsPath(String story) {
+        useStoriesAsPaths(Arrays.asList(story));
     }
 
-    public void runStoriesAsStoryFinder(String story) {
-        runStoriesAsPaths(
+    public void useStoriesAsStoryFinder(String story) {
+        useStoriesAsPaths(
                 new StoryFinder().findPaths(codeLocationFromClass(this.getClass()), story, "")
         );
     }
 
+    public void useStoriesAsPaths(List<String> stories) {
+        this.stories = stories;
+    }
+    // -------------------------
+
+
     public Configuration configuration() {
-        Class<?> embeddableClass = Embeddable.class;
-        // Start from default ParameterConverters instance
-        ParameterConverters parameterConverters = new ParameterConverters();
-        // factory to allow parameter conversion and loading from external resources (used by StoryParser too)
-        ExamplesTableFactory examplesTableFactory = new ExamplesTableFactory(new LocalizedKeywords(), new LoadFromClasspath(embeddableClass), parameterConverters);
-        // add custom converters
-        parameterConverters.addConverters(new ParameterConverters.DateConverter(new SimpleDateFormat("yyyy-MM-dd")),
-                new ParameterConverters.ExamplesTableConverter(examplesTableFactory));
         return new MostUsefulConfiguration()
-                .useStoryLoader(new LoadFromClasspath(embeddableClass))
-                .useStoryParser(new RegexStoryParser(examplesTableFactory))
                 .useStoryReporterBuilder(new StoryReporterBuilder()
-                        .withCodeLocation(CodeLocations.codeLocationFromClass(embeddableClass))
-                        .withDefaultFormats()
-                        .withFormats(CONSOLE, XML))
-                .useParameterConverters(parameterConverters);
+                        .withFormats(CONSOLE, XML));
+    }
+
+    public void useEmbedder(Embedder embedder) {
+        this.embedder = embedder;
+    }
+
+    public List<String> storyPaths() {
+        return this.stories;
+    }
+
+    public void run() throws Throwable {
+        try {
+            embedder.runStoriesAsPaths(storyPaths());
+        } finally {
+            embedder.generateCrossReference();
+        }
     }
 }

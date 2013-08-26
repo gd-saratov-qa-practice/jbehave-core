@@ -46,8 +46,6 @@ public class FiltringSteps {
         fileOutput = new FileWriter(storyFile);
     }
 
-
-
     @When("I take story file '$template' as template")
     public void takeStoryFile(String filename) throws IOException {
         template = config.getTemplate(filename);
@@ -65,23 +63,20 @@ public class FiltringSteps {
         template.process(filters,fileOutput);
         fileOutput.flush();
         fileOutput.close();
-
-        //Log processed story
-//        template.process(filters,output);
-//        System.out.println(output.toString());
     }
 
     @When("I run story with meta filters: $FiltersTable")
-    public void runStoryWithFilters(ExamplesTable FiltersTable) throws URISyntaxException {
+    public void runStoryWithFilters(ExamplesTable FiltersTable) throws Throwable {
         List<String> filters = new ArrayList<String>();
         for (Map<String,String> row : FiltersTable.getRows()) {
             String filter = row.get("filter");
             filters.add(filter);
         }
-    /*    StoryRunner test = new StoryRunner();
+        StoryRunner test = new StoryRunner();
         test.setSteps(new TestSteps());
         test.setFilters(filters);
-        test.runStoriesAsPath(testStoryAdr); */
+        test.useStoriesAsStoryFinder(dirName+"/test.story");
+        test.run();
     }
 
     @Then("verify the following")
