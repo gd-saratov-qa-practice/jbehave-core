@@ -1,23 +1,24 @@
 package org.jbehave.core.integration.steps;
 
 import org.jbehave.core.annotations.Given;
+import org.jbehave.core.annotations.Pending;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
 public class TestSteps {
 
-    @Given("Some actions")
-    public void GivenActions(){
-        //NOP
+    @Given("some actions")
+    public void givenSomeActions() {
+        // PENDING
     }
 
-    @When("Some actions")
-    public void WhenActions(){
-        //NOP
+    @When("some actions")
+    public void whenSomeActions() {
+        // PENDING
     }
 
-    @Then("Some actions")
-    public void ThenActions(){
-        //NOP
+    @Then("some actions")
+    public void thenSomeActions() {
+        // PENDING
     }
 }

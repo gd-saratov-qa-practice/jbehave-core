@@ -5,22 +5,30 @@ import freemarker.template.*;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 import org.jbehave.core.integration.TestStories;
+import org.jbehave.core.model.ExamplesTable;
 
 import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static junit.framework.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class FiltringSteps {
+    private final String dirName = "integration";
+    private String testStoryAdr;
     private Configuration config;
     private Template template;
-    private Writer output;
+    private Writer output,fileOutput;
+    private File storyFile;
     ClassLoader classLoader;
 
     @Given("I have config")
@@ -30,35 +38,54 @@ public class FiltringSteps {
 
         config = new Configuration();
         config.setDirectoryForTemplateLoading(
-                new File(getFullPath("integration"))
+                new File(getFullPath(dirName))
         );
+
         // Create new Story
-        File storyFile = new File(
-                getFullPath("integration/test.story")
-        );
-        assertTrue("Create new test.story", storyFile.createNewFile());
-        output = new StringWriter();//new FileWriter(storyFile);
+        testStoryAdr = getFullPath(dirName)+"/test.story";
+        storyFile = new File(testStoryAdr);
+        // if not exist...
+        if (!storyFile.exists()) {
+            storyFile.createNewFile();
+        }
+
+        output = new StringWriter();
+        fileOutput = new FileWriter(storyFile);
     }
 
-    @When("I take story file '$filename' as template")
+
+
+    @When("I take story file '$template' as template")
     public void takeStoryFile(String filename) throws IOException {
-        template = config.getTemplate("story.ftl");
+        template = config.getTemplate(filename);
 
     }
 
-    @When("I add meta info to the story: global is '<global>', first is '<first>'")
-    public void setMetaInfo(String global) throws IOException, TemplateException {
+    @When("I add meta info to the story: $MetaTable")
+    public void setMetaInfo(ExamplesTable MetaTable) throws IOException, TemplateException {
         Map filters = new HashMap();
-        filters.put("global", global);
-        template.process(filters,output);
-        System.out.println(output.toString());
+        for (Map<String,String> row : MetaTable.getRows()) {
+            String meta = row.get("meta");
+            String value = row.get("value");
+            filters.put(meta, value);
+        }
+        template.process(filters,fileOutput);
+        fileOutput.flush();
+        fileOutput.close();
+
+        //Log processed story
+//        template.process(filters,output);
+//        System.out.println(output.toString());
     }
 
-    @When("I run story with meta filters: <filters>")
-    public void runStoryWithFilters(String filter) {
+    @When("I run story with meta filters: $FiltersTable")
+    public void runStoryWithFilters(ExamplesTable FiltersTable) throws URISyntaxException {
         List<String> filters = new ArrayList<String>();
-        filters.add(filter);
-        new TestStories(filters, "integration/test.story");
+        for (Map<String,String> row : FiltersTable.getRows()) {
+            String filter = row.get("filter");
+            filters.add(filter);
+        }
+        new TestStories(filters, testStoryAdr);
     }
 
     @Then("verify the following")
@@ -66,8 +93,8 @@ public class FiltringSteps {
 
     }
 
-    public URI getFullPath(String path) throws URISyntaxException {
-        URL url = classLoader.getResource("integration");
-        return url.toURI();
+    public String getFullPath(String path) throws URISyntaxException {
+        URL url = classLoader.getResource(path);
+        return url.getPath();
     }
 }

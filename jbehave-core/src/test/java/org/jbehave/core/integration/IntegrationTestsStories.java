@@ -62,7 +62,7 @@ public class IntegrationTestsStories extends JUnitStories {
 
     @Override
     protected List<String> storyPaths() {
-        return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()), "**/integration/*.story", "**/integration/excluded*.story");
+        return new StoryFinder().findPaths(codeLocationFromClass(this.getClass()), "**/integration/integ_*.story", "**/integration/excluded*.story");
 
     }
 
