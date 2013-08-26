@@ -4,23 +4,16 @@ import org.jbehave.core.annotations.Given;
 import freemarker.template.*;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
-import org.jbehave.core.integration.TestStories;
+import org.jbehave.core.integration.StoryRunner;
 import org.jbehave.core.model.ExamplesTable;
 
 import java.io.*;
-import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static junit.framework.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class FiltringSteps {
     private final String dirName = "integration";
@@ -85,7 +78,10 @@ public class FiltringSteps {
             String filter = row.get("filter");
             filters.add(filter);
         }
-        new TestStories(filters, testStoryAdr);
+    /*    StoryRunner test = new StoryRunner();
+        test.setSteps(new TestSteps());
+        test.setFilters(filters);
+        test.runStoriesAsPath(testStoryAdr); */
     }
 
     @Then("verify the following")
