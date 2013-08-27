@@ -1,0 +1,253 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building JBehave Core 3.9-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ jbehave-core ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 20 resources
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ jbehave-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ jbehave-core ---
+[debug] execute contextualize
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 9 resources
+[INFO] Copying 15 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ jbehave-core ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.8.1:test (default-test) @ jbehave-core ---
+[INFO] Surefire report directory: /home/acherepanov/workspace/jbehave-core/jbehave-core/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.jbehave.core.ConfigurableEmbedderBehaviour
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.346 sec
+Running org.jbehave.core.io.StoryPathResolverBehaviour
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running org.jbehave.core.io.StoryLoaderBehaviour
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec
+Running org.jbehave.core.io.LoadFromRelativeFileBehaviour
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running org.jbehave.core.io.StoryFinderBehaviour
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 sec
+Running org.jbehave.core.io.RelativePathCalculatorBehaviour
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running org.jbehave.core.io.UnderscoredToCapitalizedBehaviour
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running org.jbehave.core.io.JarFileScannerBehaviour
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running org.jbehave.core.io.CodeLocationsBehaviour
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running org.jbehave.core.io.IOUtilsBehaviour
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 sec
+Running org.jbehave.core.io.StoryNameResolverBehaviour
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running org.jbehave.core.io.StoryLocationBehaviour
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running org.jbehave.core.embedder.executors.ExecutorsBehaviour
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+Running org.jbehave.core.embedder.ConcurrencyBehaviour
+Using controls EmbedderControls[batch=false,skip=false,generateViewAfterStories=true,ignoreFailureInStories=false,ignoreFailureInView=false,verboseFailures=false,verboseFiltering=false,storyTimeoutInSecs=1,threads=1]
+Running embeddable org.jbehave.core.embedder.ConcurrencyBehaviour$MississipiCancelled
+Processing system properties {}
+Using controls EmbedderControls[batch=false,skip=false,generateViewAfterStories=true,ignoreFailureInStories=false,ignoreFailureInView=false,verboseFailures=false,verboseFiltering=false,storyTimeoutInSecs=1,threads=1]
+
+(BeforeStories)
+
+Running story org/jbehave/core/embedder/a_long.story
+
+(org/jbehave/core/embedder/a_long.story)
+Scenario: 
+Mauro starts counting to 3
+Mauro says 0 Mississippi (0 millis)
+Mauro says 1 Mississippi (1000 millis)
+Story org/jbehave/core/embedder/a_long.story duration of 2 seconds has exceeded timeout of 1 seconds
+When Mauro counts to 3 Mississippi (FAILED)
+(java.lang.InterruptedException: sleep interrupted)
+STORY CANCELLED (DURATION 2 s)
+
+
+Running story test+dir/dummy.story
+
+(test+dir/dummy.story)
+Scenario: 
+
+
+
+(AfterStories)
+
+Generating reports view to '/home/acherepanov/workspace/jbehave-core/jbehave-core/target/jbehave' using formats '[console, html, xml]' and view properties '{defaultFormats=stats, decorateNonHtml=true, viewDirectory=view, decorated=ftl/jbehave-report-decorated.ftl, reports=ftl/jbehave-reports-with-totals.ftl, maps=ftl/jbehave-maps.ftl, navigator=ftl/jbehave-navigator.ftl, views=ftl/jbehave-views.ftl, nonDecorated=ftl/jbehave-report-non-decorated.ftl}'
+Reports view generated with 0 stories (of which 0 pending) containing 0 scenarios (of which 0 pending)
+Using controls EmbedderControls[batch=false,skip=false,generateViewAfterStories=true,ignoreFailureInStories=false,ignoreFailureInView=false,verboseFailures=false,verboseFiltering=false,storyTimeoutInSecs=1,threads=1]
+Running embeddable org.jbehave.core.embedder.ConcurrencyBehaviour$XmlFormat
+Processing system properties {}
+Using controls EmbedderControls[batch=false,skip=false,generateViewAfterStories=true,ignoreFailureInStories=false,ignoreFailureInView=false,verboseFailures=false,verboseFiltering=false,storyTimeoutInSecs=1,threads=1]
+Running story org/jbehave/core/embedder/xml_format.story
+Story org/jbehave/core/embedder/xml_format.story duration of 2 seconds has exceeded timeout of 1 seconds
+Generating reports view to '/home/acherepanov/workspace/jbehave-core/jbehave-core/target/jbehave' using formats '[xml]' and view properties '{defaultFormats=stats, decorateNonHtml=true, viewDirectory=view, decorated=ftl/jbehave-report-decorated.ftl, reports=ftl/jbehave-reports-with-totals.ftl, maps=ftl/jbehave-maps.ftl, navigator=ftl/jbehave-navigator.ftl, views=ftl/jbehave-views.ftl, nonDecorated=ftl/jbehave-report-non-decorated.ftl}'
+Reports view generated with 0 stories (of which 0 pending) containing 0 scenarios (of which 0 pending)
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.969 sec
+Running org.jbehave.core.embedder.EmbedderControlsBehaviour
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running org.jbehave.core.embedder.EmbedderBehaviour
+Running with AnnotatedEmbedderRunner 'org.jbehave.core.embedder.EmbedderBehaviour$RunningWithAnnotatedEmbedderRunner'
+Annotation interface org.jbehave.core.annotations.UsingSteps not found in class org.jbehave.core.embedder.EmbedderBehaviour$RunningWithAnnotatedEmbedderRunner
+Running with AnnotatedEmbedderRunner 'org.jbehave.core.embedder.EmbedderBehaviour$FailingWithAnnotatedEmbedderRunner'
+Annotation interface org.jbehave.core.annotations.UsingSteps not found in class org.jbehave.core.embedder.EmbedderBehaviour$FailingWithAnnotatedEmbedderRunner
+Running with AnnotatedEmbedderRunner 'InexistingRunner'
+Running with AnnotatedEmbedderRunner 'org.jbehave.core.embedder.EmbedderBehaviour$NotEmbeddableWithAnnotatedEmbedderRunner'
+Annotation interface org.jbehave.core.annotations.UsingSteps not found in class org.jbehave.core.embedder.EmbedderBehaviour$NotEmbeddableWithAnnotatedEmbedderRunner
+Annotated instance org.jbehave.core.embedder.EmbedderBehaviour$NotEmbeddableWithAnnotatedEmbedderRunner@6ef2da0b if not of type interface org.jbehave.core.Embeddable
+Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.987 sec
+Running org.jbehave.core.embedder.EmbedderClassLoaderBehaviour
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+Running org.jbehave.core.embedder.StoryRunnerBehaviour
+Meta[properties={story_description=, story_path=excluded_path, story_narrative=Narrative[inOrderTo=,asA=,iWantTo=,soThat=]}] excluded by filter '-story_path excluded_path'
+Meta[properties={givenStories=, story_description=, examplesTable=, story_path=excluded_path, story_narrative=Narrative[inOrderTo=,asA=,iWantTo=,soThat=], title=}] excluded by filter '-story_path excluded_path'
+Meta[properties={givenStories=, narrative=Narrative[inOrderTo=,asA=,iWantTo=,soThat=], examplesTable=, description=, path=, some=property, title=}] excluded by filter '-some property'
+Meta[properties={scenario_givenStories=, scenario_title=excluded_title, narrative=Narrative[inOrderTo=,asA=,iWantTo=,soThat=], scenario_examplesTable=, description=, path=}] excluded by filter '-scenario_title excluded_title'
+Meta[properties={narrative=Narrative[inOrderTo=,asA=,iWantTo=,soThat=], description=, path=, some=property}] excluded by filter '-some property'
+Meta[properties={givenStories=, narrative=Narrative[inOrderTo=,asA=,iWantTo=,soThat=], examplesTable=, description=, path=, some=property, title=}] excluded by filter '-some property'
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.447 sec
+Running org.jbehave.core.embedder.MetaFilterBehaviour
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.669 sec
+Running org.jbehave.core.embedder.EmbedderMonitorBehaviour
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec
+Running org.jbehave.core.embedder.StoryMapperBehaviour
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running org.jbehave.core.configuration.ParanamerConfigurationBehaviour
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running org.jbehave.core.configuration.UnmodifiableConfigurationBehaviour
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running org.jbehave.core.configuration.KeywordsBehaviour
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running org.jbehave.core.configuration.AnnotationFinderBehaviour
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec
+Running org.jbehave.core.configuration.PropertyBasedConfigurationBehaviour
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec
+Running org.jbehave.core.configuration.AnnotationBuilderBehaviour
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 sec
+Running org.jbehave.core.steps.ChainedRowBehaviour
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running org.jbehave.core.steps.StepCreatorBehaviour
+Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 sec
+Running org.jbehave.core.steps.ParameterConvertersBehaviour
+Thread-1 completed.
+Thread-2 completed.
+Thread-3 completed.
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 sec
+Running org.jbehave.core.steps.ConcurrencyBehaviour
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec
+Running org.jbehave.core.steps.BeforeOrAfterStepBehaviour
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec
+Running org.jbehave.core.steps.StepFinderBehaviour
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running org.jbehave.core.steps.ConvertedParametersBehaviour
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running org.jbehave.core.steps.StepsBehaviour
+Tests run: 15, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.061 sec <<< FAILURE!
+Running org.jbehave.core.steps.StepCandidateBehaviour
+Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 sec
+Running org.jbehave.core.steps.PrintStreamStepMonitorBehaviour
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running org.jbehave.core.steps.CompositeStepCandidateBehaviour
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.027 sec
+Running org.jbehave.core.steps.PatternVariantBuilderBehaviour
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running org.jbehave.core.steps.InstanceStepsFactoryBehaviour
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running org.jbehave.core.steps.MarkUnmatchedStepsAsPendingBehaviour
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.141 sec
+Running org.jbehave.core.steps.StepResultBehaviour
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec
+Running org.jbehave.core.steps.PendingStepMethodGeneratorBehaviour
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running org.jbehave.core.parsers.TransformingStoryParserBehaviour
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running org.jbehave.core.parsers.RegexPrefixCapturingPatternParserBehaviour
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running org.jbehave.core.parsers.RegexStoryParserBehaviour
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.379 sec
+Running org.jbehave.core.i18n.LocalizedKeywordsBehaviour
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec
+Running org.jbehave.core.reporters.StepFailureDecoratorBehaviour
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running org.jbehave.core.reporters.NullStoryReporterBehaviour
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running org.jbehave.core.reporters.TemplateableOutputBehaviour
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.136 sec
+Running org.jbehave.core.reporters.ANSIConsoleOutputBehaviour
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running org.jbehave.core.reporters.PostStoryStatisticsCollectorBehaviour
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running org.jbehave.core.reporters.FilePrintStreamFactoryBehaviour
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec
+Running org.jbehave.core.reporters.StackTraceFormatterBehaviour
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running org.jbehave.core.reporters.CrossReferenceBehaviour
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 sec
+Running org.jbehave.core.reporters.SilentSuccessFilterBehaviour
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 sec
+Running org.jbehave.core.reporters.StoryReporterBuilderBehaviour
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec
+Running org.jbehave.core.reporters.FreemarkerViewGeneratorBehaviour
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec
+Running org.jbehave.core.reporters.PrintStreamOutputBehaviour
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 sec
+Running org.jbehave.core.reporters.DelegatingStoryReporterBehaviour
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 sec
+Running org.jbehave.core.failures.FailureStrategyBehaviour
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running org.jbehave.core.failures.StepFailureBehaviour
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running org.jbehave.core.InjectableEmbedderBehaviour
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+Running org.jbehave.core.model.StoryMapsBehaviour
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec
+Running org.jbehave.core.model.OutcomesTableBehaviour
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running org.jbehave.core.model.TableTransformersBehaviour
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec
+Running org.jbehave.core.model.ExamplesTableBehaviour
+Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec
+Running org.jbehave.core.model.MetaBehaviour
+Meta[properties={environment=all, skip=}] excluded by filter '-skip'
+Meta[properties={environment=all, skip=}] excluded by filter '-environment preview -skip'
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec
+Running org.jbehave.core.model.ExamplesTableFactoryBehaviour
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec
+
+Results :
+
+Failed tests: 
+  shouldProvideStepsToBePerformedBeforeAndAfterScenariosWithNoFailureOccuring(org.jbehave.core.steps.StepsBehaviour): 
+  shouldProvideStepsToBeNotPerformedAfterScenarioUponOutcome(org.jbehave.core.steps.StepsBehaviour): 
+  shouldProvideStepsToBePerformedBeforeAndAfterScenariosWithFailureOccuring(org.jbehave.core.steps.StepsBehaviour): 
+
+Tests run: 499, Failures: 3, Errors: 0, Skipped: 1
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 18.395s
+[INFO] Finished at: Tue Aug 27 17:21:34 MSK 2013
+[INFO] Final Memory: 8M/192M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.8.1:test (default-test) on project jbehave-core: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/acherepanov/workspace/jbehave-core/jbehave-core/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

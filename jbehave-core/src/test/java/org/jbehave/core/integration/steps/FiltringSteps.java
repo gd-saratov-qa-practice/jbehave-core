@@ -49,7 +49,7 @@ public class FiltringSteps {
         );
 
         // Create new Story
-        testStoryAdr = getFullPath(dirName)+"/test.story";
+        testStoryAdr = getFullPath(dirName)+"/test.istory";
         storyFile = new File(testStoryAdr);
         // if not exist...
         if (!storyFile.exists()) {
@@ -89,7 +89,7 @@ public class FiltringSteps {
         testStory = new StoryRunner();
         testStory.setSteps(new TestSteps());
         testStory.setFilters(filters);
-        testStory.useStoriesAsStoryFinder(dirName + "/test.story");
+        testStory.useStoriesAsStoryFinder(dirName + "/test.istory");
         testStory.setConfiguration(new MostUsefulConfiguration()
                 .useStoryReporterBuilder(new StoryReporterBuilder()
                         .withFormats(TXT)));
