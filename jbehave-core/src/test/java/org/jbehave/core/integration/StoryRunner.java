@@ -1,6 +1,7 @@
 package org.jbehave.core.integration;
 
 import org.jbehave.core.Embeddable;
+import org.jbehave.core.configuration.Keywords;
 import org.jbehave.core.embedder.Embedder;
 import org.jbehave.core.configuration.Configuration;
 import org.jbehave.core.configuration.MostUsefulConfiguration;
@@ -10,6 +11,7 @@ import org.jbehave.core.io.LoadFromClasspath;
 import org.jbehave.core.io.StoryFinder;
 import org.jbehave.core.model.ExamplesTableFactory;
 import org.jbehave.core.parsers.RegexStoryParser;
+import org.jbehave.core.reporters.CrossReference;
 import org.jbehave.core.reporters.StoryReporterBuilder;
 import org.jbehave.core.steps.InstanceStepsFactory;
 import org.jbehave.core.steps.ParameterConverters;
@@ -19,8 +21,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.jbehave.core.io.CodeLocations.codeLocationFromClass;
-import static org.jbehave.core.reporters.Format.CONSOLE;
-import static org.jbehave.core.reporters.Format.XML;
+import static org.jbehave.core.reporters.Format.ANSI_CONSOLE;
+import static org.jbehave.core.reporters.Format.TXT;
 
 public class StoryRunner implements Embeddable{
     private Embedder embedder = new Embedder();
@@ -52,6 +54,7 @@ public class StoryRunner implements Embeddable{
 
     public void setConfiguration(Configuration configuration) {
         this.configuration = configuration;
+        embedder.useConfiguration(configuration);
     }
 
     // --- Configure stories ---
@@ -74,7 +77,7 @@ public class StoryRunner implements Embeddable{
     public Configuration configuration() {
         return new MostUsefulConfiguration()
                 .useStoryReporterBuilder(new StoryReporterBuilder()
-                        .withFormats(CONSOLE, XML));
+                        .withFormats(ANSI_CONSOLE,TXT));
     }
 
     public void useEmbedder(Embedder embedder) {
@@ -91,5 +94,9 @@ public class StoryRunner implements Embeddable{
         } finally {
             embedder.generateCrossReference();
         }
+    }
+
+    public void getParsedStory() {
+
     }
 }
